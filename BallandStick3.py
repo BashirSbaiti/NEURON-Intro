@@ -107,7 +107,7 @@ class Ring:
         self._syn_delay = syn_delay
         self._create_cells(N, r)
         self._connect_cells()
-        # add stimulus to cello 0
+        # add stimulus to cell 0
         self._netstim = h.NetStim()
         self._netstim.number = 1
         self._netstim.start = stim_t
