@@ -138,8 +138,6 @@ syn_i = h.Vector().record(syn_._ref_i)  # record time series of synaptic current
 h.finitialize(-65 * mV)
 h.continuerun(25 * ms)
 
-plt.figure()
-plt.figure()
 # plot
 fig = plt.figure(figsize=(8, 4))
 ax1 = fig.add_subplot(2, 1, 1)

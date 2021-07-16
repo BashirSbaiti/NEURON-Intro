@@ -37,6 +37,7 @@ class BallAndStick:
             seg.pas.g = 0.001  # Passive conductance in S/cm2
             seg.pas.e = -65    # Leak reversal potential mV
     def __repr__(self):
+        """represents the ball and stick model as a string"""
         return f'BallAndStick[{self.gid}]'
 
 my_cell = BallAndStick(0)
