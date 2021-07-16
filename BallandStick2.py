@@ -4,14 +4,13 @@ import matplotlib.pyplot as plt
 
 h.load_file('stdrun.hoc')
 
-import matplotlib.pyplot as plt
-
 
 class Cell:  # generic cell class
     def __init__(self, gid, x, y, z, theta):
+        """initializes instance variables of a Cell object"""
         self._gid = gid
         self._setup_morphology()
-        self.all = self.soma.wholetree()  # all objects in model
+        self.all = self.soma.wholetree()  # all objects connected to soma
         self._setup_biophysics()
         self.x = self.y = self.z = 0
         h.define_shape()
@@ -19,6 +18,7 @@ class Cell:  # generic cell class
         self._set_position(x, y, z)
 
     def __repr__(self):
+        """represents the Cell as a string"""
         return f"{self.name}[{self._gid}]"
 
     def _set_position(self, x, y, z):
@@ -86,7 +86,6 @@ class BallAndStick(Cell):
 
 
 mycell = BallAndStick(0, 0, 0, 0, 0)
-del mycell
 
 def create_n_BallAndStick(n, r):
     """create a circle of neurons, n = number of cells; r = radius of circle"""
@@ -185,9 +184,11 @@ h.continuerun(100 * ms)
 for i, spike_times_vec in enumerate(spike_times):
     print(f'cell {i}: {list(spike_times_vec)}')
 
-# ploy raster plot
+# plot raster plot
 plt.figure()
 
 for i, spike_times_vec in enumerate(spike_times):
     plt.vlines(spike_times_vec, i + 0.5, i + 1.5)
 plt.show()
+
+
